@@ -1,4 +1,4 @@
-nginx:1.20.0
+FROM nginx:1.20.0
 
 ADD index.html /usr/share/nginx/html
 ADD js /usr/share/nginx/html
