@@ -1,0 +1,18 @@
+# This file is a template, and might need editing before it works on your project.
+# Full project: https://gitlab.com/pages/plain-html
+pages:
+  stage: deploy
+  tags:
+    - exercise
+  script:
+    - mkdir .public
+    - cp -r * .public
+    - rm .public/.*
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  only:
+    - master # this job will affect only the 'master' branch
+
