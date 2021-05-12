@@ -2,7 +2,7 @@ before_script:
   - docker info
 
 build_image:
-  stage: build
+  stage: deploy
   tags:
     - task
   script:
