@@ -1,19 +1,16 @@
-image: docker:19.03.13
+image: docker:19.03.12
 
 before_script:
   - docker info
 
-pages:
-  stage: deploy
+build:
+  stage: build
   tags:
-    - task
+    - docker
   script:
-    - mkdir public
-    - ./build.sh
+    - docker build -t tank .
+    - docker images
   artifacts:
-    paths:
-      - public
     expire_in: 1 week
   only:
     - master # this job will affect only the 'master' branch
-
