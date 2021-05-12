@@ -30,7 +30,12 @@ build_image:
   tags:
     - task
   script:
-    - docker images
-    - sh build.sh
+    - version=$(date +%Y%m%d%H%M%S)
+    - docker build -t tank:$version .
+    - image_id=$(docker images | grep $version | awk '{print $3}')
+    - docker tag $image_id registry.cn-hangzhou.aliyuncs.com/qingguatang/tank:$version
+    - docker push registry.cn-hangzhou.aliyuncs.com/qingguatang/tank:$version
+    - docker rmi -f $image_id
+
   only:
     - master # this job will affect only the 'master' branch
