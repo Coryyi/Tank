@@ -7,6 +7,6 @@ build_image:
     - task
   script:
     - docker images
-    - sudo sh build.sh
+    - sh build.sh
   only:
     - master # this job will affect only the 'master' branch
