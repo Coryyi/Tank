@@ -13,7 +13,7 @@ build_image:
     - docker tag $image_id registry.cn-hangzhou.aliyuncs.com/qingguatang/tank:$version
     - docker push registry.cn-hangzhou.aliyuncs.com/qingguatang/tank:$version
     - docker rmi -f $image_id
-    - echo -e "请复制下列命令：\nsudo docker run -p 8080:80 -d --name tank registry.cn-hangzhou.aliyuncs.com/qingguatang/tank:$version\n"
+    - echo -e "请复制下列命令：\nsudo docker run -p 4001:80 -d --name tank registry.cn-hangzhou.aliyuncs.com/qingguatang/tank:$version\n"
 
   only:
     - master # this job will affect only the 'master' branch
